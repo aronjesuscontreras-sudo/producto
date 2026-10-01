@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenith Acoustics - Audífonos Zenith Pro</title>
+    <!-- FontAwesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b0b0b;
+            /* Fondo simulando el mármol oscuro de la referencia */
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(184, 150, 90, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(184, 150, 90, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, #151515 0%, #080808 100%);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .page-wrapper {
+            width: 100%;
+            max-width: 1000px;
+            background-color: #f3efe6; /* Fondo crema principal */
+            border: 2px solid #332d20;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            position: relative;
+        }
+
+        /* Header con el aspecto metálico y brillante característico */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, #dcd5c0 0%, #c4b99f 50%, #b2a68a 100%);
+            border: 1px solid #9e9174;
+            padding: 15px 25px;
+            margin-bottom: 40px;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-z {
+            font-size: 1.8rem;
+            font-weight: bold;
+            border: 2px solid #222;
+            padding: 2px 10px;
+            background: rgba(255,255,255,0.2);
+            color: #111;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.7rem;
+            letter-spacing: 2.5px;
+            font-weight: bold;
+            color: #222;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 0.95srem;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 3px;
+        }
+
+        .nav a.active {
+            font-weight: bold;
+        }
+
+        .nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #222;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to bottom, #242424, #0d0d0d);
+            border: 1px solid #444;
+            padding: 8px 15px;
+            border-radius: 2px;
+            color: #ccc;
+            gap: 10px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .search-box i {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: #fff;
+            outline: none;
+            font-size: 0.85rem;
+            width: 130px;
+        }
+
+        .search-box input::placeholder {
+            color: #aaa;
+        }
+
+        /* Main Content */
+        .title-section {
+            margin-bottom: 35px;
+        }
+
+        .sub-title {
+            font-size: 1.25rem;
+            color: #555;
+            font-weight: normal;
+            margin-bottom: 4px;
+        }
+
+        .main-title {
+            font-size: 2.2rem;
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .product-image-container {
+            border: 1px solid #b5a98d;
+            background: #050505;
+            padding: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        .product-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .section-heading {
+            font-size: 1.3rem;
+            color: #2c2c2c;
+            font-weight: 600;
+        }
+
+        .product-desc {
+            font-size: 1.02rem;
+            line-height: 1.6;
+            color: #3a3a3a;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-top: 5px;
+        }
+
+        .cart-btn {
+            background: linear-gradient(to bottom, #4a4a4a, #1a1a1a);
+            color: #fff;
+            border: 1px solid #222;
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            border-radius: 6px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: fit-content;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: all 0.2s ease;
+        }
+
+        .cart-btn:hover {
+            background: linear-gradient(to bottom, #5a5a5a, #2a2a2a);
+        }
+
+        /* Footer con el mismo aspecto metálico brillante de la barra superior */
+        .footer {
+            background: linear-gradient(to bottom, #dcd5c0 0%, #c4b99f 50%, #b2a68a 100%);
+            border: 1px solid #9e9174;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            color: #333;
+            font-size: 0.88rem;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-info h4 {
+            margin-bottom: 6px;
+            color: #1a1a1a;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .contact-info p {
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .footer-copy {
+            align-self: flex-end;
+            font-size: 0.82rem;
+            color: #444;
+            margin-top: -10px;
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .nav {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <!-- Cabecera con degradado metálico brillante -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-z">Z</span>
+                <div class="logo-text">
+                    <span class="zenith">ZENITH</span>
+                    <span class="acoustics">ACOUSTICS</span>
+                </div>
+            </div>
+            
+            <nav class="nav">
+                <a href="#" class="active">Inicio</a>
+                <a href="#">Productos</a>
+                <a href="#">Reseñas</a>
+                <a href="#">Soporte</a>
+            </nav>
+
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Buscar Productos">
+            </div>
+        </header>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <div class="title-section">
+                <h1 class="main-title">Audífonos Zenith Pro</h1>
+            </div>
+
+            <div class="product-grid">
+                <!-- REEMPLAZA 'tu-imagen-audifonos.jpg' CON EL NOMBRE O URL DE TU IMAGEN -->
+                <div class="product-image-container">
+                    <img src="imagen/audifonos.jpg" alt="Audífonos Zenith Pro" class="product-img">
+                </div>
+
+                <div class="product-details">
+                    <h3 class="section-heading">Descripción del producto</h3>
+                    <p class="product-desc">
+                        Experimente un sonido envolvente con los Audífonos Zenith Pro. Con cancelación activa de ruido y 30 horas de duración de la batería.
+                    </p>
+                    <div class="product-price">
+                        Precio: S/ 549.99
+                    </div>
+                    <button class="cart-btn">
+                        Añadir al Carrito <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Pie de página con el mismo acabado metálico -->
+        <footer class="footer">
+            <div class="contact-info">
+                <h4>Información de contacto</h4>
+                <p>Zenith Acoustics Ltda. | Calle Innovación 123</p>
+                <p>Ciudad Tecnológica, TC 123-4567</p>
+                <p>Teléfono: (555) 123-4567</p>
+                <p>Correo electrónico: support@zenith.com</p>
+            </div>
+            <div class="footer-copy">
+                &copy; 2023 Zenith Acoustics
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
